@@ -73,13 +73,13 @@
     margin: auto;
 }
 .main {
-    /* background: red; */
+    background: red;
     padding: var(--space-layout-padding-lr);
     margin-top: 15px;
 }
 .main__nav {
-    /* background: violet; */
-    /* padding: 10px; */
+    background: violet;
+    padding: 10px;
 }
 .nav__ul {
     /* background: darkgrey; */
