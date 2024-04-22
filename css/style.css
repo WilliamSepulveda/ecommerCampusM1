@@ -83,7 +83,7 @@
     padding: 10px;
 }
 .nav__ul {
-    background: darkgrey;
+    margin-left: 2vw;
     height: 55px;
     display: flex;
     flex-direction: row;
@@ -103,7 +103,6 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 5px;
     border-radius: 8px;
     border: 1px solid var(--color-3);
     color: var(--color-1);
