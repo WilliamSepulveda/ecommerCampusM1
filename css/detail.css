@@ -50,6 +50,7 @@
     font-family: "EncodeSans-SemiBold", sans-serif;
 }
 .product__select {
+    background: green;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +65,7 @@
 }
 #img:hover{
     transition: 0.5s;
-    box-shadow: 0px 0px 11px black;
+    box-shadow: 0px 0px 11px rgb(0, 0, 0);
     border-radius: 100%;
     
 }
