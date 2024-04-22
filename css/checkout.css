@@ -5,3 +5,118 @@
     font-family: "EncodeSans-Regular";
     box-sizing: border-box;
 }
+.contenedorp{
+    border: 1px solid black;
+    background: red;
+    padding: var(--space-layout-padding-lr);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+.contenedorh{
+    display: flex;
+    font-size: 5vw;
+    margin-left: 34vw;
+}
+.contenedorimagen{
+    float: left;
+}
+#back{
+    margin-left: -90vw;
+}
+#menu{
+    margin-left: 70vw;
+}
+.lista {
+    display: flex;
+    border: 1px solid black;
+    background: darkred;
+    flex-wrap: wrap; 
+}
+.cont__lista {
+    display: flex;
+    border: 1px solid black;
+    background: rgb(206, 0, 93);
+    width: 385px;
+}
+#cont-foto1{
+    width: 130px;
+    margin-left: 2vw;
+}
+#opciones1{
+    margin-left:25vw;
+    margin-top: -12vw;
+}
+.botton{
+    position: relative;
+    background: rgb(33, 33, 33);
+    display: flex;
+    margin-left: -32vw;
+    margin-top: 12vw;
+    height: 6vw;
+    width: 18vw;
+    gap: 2vw;
+    border-radius: 1.55vw;
+    border: none;
+    color: white;
+}
+#img{
+    width: 20px;
+}
+
+.cont__lista2 {
+    display: flex;
+    border: 1px solid black;
+    background: rgb(206, 0, 93);
+    width: 385px;
+}
+#cont-foto1{
+    width: 130px;
+    margin-left: 2vw;
+}
+#opciones2{
+    flex-direction: row;
+    width: 20vw;
+    margin-left: 58vw;
+    
+}
+.botton2{
+    background: rgb(33, 33, 33);
+    display: flex;
+    margin-left: 57vw;
+    margin-top: -12vw;
+    height: 6vw;
+    width: vw;
+    gap: 2vw;
+    border-radius: 1.55vw;
+    border: none;
+    color: white;
+} 
+.cont__lista3 {
+    display: flex;
+    border: 1px solid black;
+    background: rgb(206, 0, 93);
+    width: 385px;
+}
+#cont-foto1{
+    width: 130px;
+    margin-left: 2vw;
+}
+#opciones{
+    margin-left: 15vw;
+    margin-top: -12vw;
+}
+.botton2{
+    background: rgb(33, 33, 33);
+    display: flex;
+    margin-left: 57vw;
+    margin-top: -12vw;
+    height: 6vw;
+    width: vw;
+    gap: 2vw;
+    border-radius: 1.55vw;
+    border: none;
+    color: white;
+}     

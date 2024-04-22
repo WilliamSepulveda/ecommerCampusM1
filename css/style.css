@@ -59,6 +59,7 @@
     cursor: pointer;
 }
 .nav__filter{
+    
     background: var(--color-1);
     width: 40px;
     height: 40px;
@@ -66,6 +67,7 @@
     position: relative;
 }
 .nav__filter img{
+    
     width: 20px;
     position: absolute;
     inset: 0;
@@ -81,7 +83,7 @@
     padding: 10px;
 }
 .nav__ul {
-    /* background: darkgrey; */
+    background: darkgrey;
     height: 55px;
     display: flex;
     flex-direction: row;
