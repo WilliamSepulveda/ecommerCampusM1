@@ -5,31 +5,33 @@
     font-family: "EncodeSans-Regular";
     box-sizing: border-box;
 }
-.header {
-    /* background: red; */
-    padding: va( --space-layout-padding-lr);
-    
-}
-.nav__header {
+
+.header__nav {
+    /* background: violet; */
     display: flex;
     justify-content: space-between;
-    align-items: center;padding:  15px 15px 0 15px;
-    /* background: violet; */
+    align-items: center;
+    padding: 15px 15px 0 15px;
 }
-.main {
-    /* background: blue; */
-    padding: var(--space-layout-padding-lr);
-    overflow-y: auto;
-    height: 40vh;
+.header__nav div:nth-child(2){
+    font-family: "EncodeSans-SemiBold";
+    color: var(--color-2);
+}
 
-}
-.checkout__details{
-    /* padding: 5px; */
+
+
+.main {
+    /* background: red; */
     padding: var(--space-layout-padding-lr);
 }
-.detail__product {
-    /* background: rgb(0, 255, 34); */
-    /* padding: 5px; */
+.checkout__details {
+    /* background: green; */
+    height: 275px;
+    overflow-y: scroll;
+    /* padding-top: 15px; */
+}
+.details__product {
+    /* background: green; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -39,51 +41,55 @@
     border-bottom-color: var(--color-3);
 }
 .product__imagen {
-    width: var(--layout-imagen-width-checkout);
-    height:var(--layout-imagen-height-checkout);
-    /* background: rgb(183, 255, 0); */
+    /* background: maroon; */
+    width: var( --layout-imagen-width-checkout);
+    height: var(--layout-imagen-height-checkout);
 }
-
 .product__imagen img{
-    width: var(--layout-imagen-width-checkout);
-    height:var(--layout-imagen-height-checkout);
+    width: var( --layout-imagen-width-checkout);
+    height: var(--layout-imagen-height-checkout);
+    border-radius: 15px;
     object-fit: cover;
-    margin-left: -0.5pc;
 }
-.product__descripcion{
+.product__description {
     position: relative;
+    /* background: violet; */
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
-.product__descripcion h3{
-    font-family: "Encodesans-semiBold";
-
+.product__description h3{
+    font-size: 1em;
+    font-family: "EncodeSans-SemiBold";
+    color: var(--color-2);
 }
-.product__descripcion small{
-    margin-top:2px;
+.product__description small{
+    margin-top: 2px;
     color: var(--color-3);
 }
-.product__descripcion span{
-    font-family: "Encodesans-semiBold";
+.product__description span{
+    font-family: "EncodeSans-SemiBold";
     position: absolute;
     bottom: 0;
+    font-size: .9em;
+    color: var(--color-2);
 }
-.product__custom{
-    /* background: turquoise; */
+.product__custom {
+    /* background: salmon; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .product__custom > img{
-    width: 25%;
-    margin-top: 8px;
-    align-self: self-end;
-    margin-right: 2px;
+    /* padding: 5px 5px; */
+    width: 35px;
+    align-self: flex-end;
+    object-fit: scale-down;
+    /* background: orange; */
 }
-.product__seleccion {
-    border-radius: 5px;
+.product__select{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background: var(--color-4);
     color: var(--color-5);
@@ -91,45 +97,38 @@
     height: 28px;
     border-radius: 5px;
 }
-.product__seleccion{
-    height: 25px;
-    width: 80px;
-    object-fit: cover;
-    
+.product__select img{
+    height: 20px;
+    width: 20px;
+}
+.product__select span{
+    font-family: "EncodeSans-SemiBold";
 }
 
-
-
-
-
-
-
-
-
-
-.seccion__shopping{
-    /* background: green; */
-    margin-top: 8vw;
+.section__Shopping{
+    /* background: red; */
+    margin-top: 20px;
 }
-.shopping__title{
-    margin-bottom: 15px;
-    /* background: blue    ; */
-}
-.shopping_option{
-    background: violet;
-}
-.seccion__card{
+.Shopping__title{
+    /* background: blue; */
     margin-bottom: 15px;
 }
+.Shopping__title h3{
+    color: var(--color-1);
+    font-family: "EncodeSans-SemiBold";
+}
 
+.section__card{
+    /* background: red; */
+    margin-bottom: 15px;
+}
 .dropdown {
-    background: red;
     position: relative;
     display: inline-block;
     width: 100%;
 }
-.dropdown__button{
-    background-color: blue;
+.dropdown__button {
+    background-color: #ededed;
     border-radius: 5px;
     width: 100%;
     color: var(--color-1);
@@ -140,13 +139,19 @@
     align-items: center;
     justify-content: space-between;
 }
-.dropdown-card{
+.shopping__card{
     display: flex;
     align-items: center;
     gap: 10px;
+    
 }
+.shopping__card label{
+    font-family: "EncodeSans-SemiBold";
+}
+/* .shopping__card img{
+    transform: rotate(272deg);
+} */
 .dropdown__content {
-   
     display: none;
     position: absolute;
     background-color: var(--color-5);
@@ -155,18 +160,17 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.dropdown-content div:last-child{
-    background: green;
+.dropdown__content div:last-child{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.dropdown-content div:hover {
+.dropdown__content div {
     color: var(--color-1);
     padding: 12px 16px;
     display: block;
 }
 
-.dropdown-content div:hover {
+.dropdown__content div:hover {
     background-color: var(--color-1);
     color: var(--color-5);
     cursor: pointer;
@@ -177,27 +181,30 @@
     width: 100%
 }
 
-.dropdown:hover .dropdown__button{
+.dropdown:hover .dropdown__button {
     background-color: var(--color-1);
     color: var(--color-5);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.dropdown:hover .dropdown__button .shopping_option{
+.dropdown:hover .dropdown__button .shopping__option{
     filter: invert(1);
 }
-.seccion__bill{
-    margin-top: 25px
+.section__bill {
+    /* background: red; */
+    margin-top: 25px;
 }
-.seccion__bill span{
+.section__bill span{
     font-family: "EncodeSans-SemiBold";
 }
-.bill__total{
+.bill__total {
+    /* background: blue; */
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-bottom: 15px;
 }
-.bill__fee{
+.bill__fee {
+    /* background: violet; */
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -206,8 +213,53 @@
     border-bottom-style: solid;
     border-bottom-color: var(--color-3);
 }
-.bill__subtotal{
+.bill__subtotal {
+    /* background: green; */
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+.bill__total label,
+.bill__fee label,
+.bill__subtotal label{
+    color: var(--color-2);
+}
+.bill__total span,
+.bill__fee span,
+.bill__subtotal span{
+    color: var(--color-2);
+    font-family: "EncodeSans-SemiBold";
+}
+.footer{
+    /* background: red; */
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    padding: var(--space-layout-padding-lr);
+}
+.footer__ul{
+    background: var(--color-4);
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 40px;
+}
+.footer__ul li{
+    list-style: none;
+    display: flex;
+}
+.footer__ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* background: red; */
+    text-decoration: none;
+    gap: 5px;
+    color: var(--color-5);
+}
+.footer__ul li a span{
+    font-family:"EncodeSans-Medium";
 }
