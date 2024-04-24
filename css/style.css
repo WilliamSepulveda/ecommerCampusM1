@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 .contenedorp{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* background: red; */
     padding: var(--space-layout-padding-lr);
     display: flex;
@@ -59,7 +59,6 @@
     cursor: pointer;
 }
 .nav__filter{
-    
     background: var(--color-1);
     width: 40px;
     height: 40px;
@@ -83,7 +82,7 @@
     padding: 10px;
 }
 .nav__ul {
-    margin-left: 2vw;
+    margin-left: 1vw;
     height: 55px;
     display: flex;
     flex-direction: row;
@@ -91,18 +90,20 @@
     gap: 10px;
     overflow-x: scroll;
 }
+
 .nav__ul li{
     list-style: none;
 }
 .nav__ul li a{
+    /* background: orange; */
     width: 105px;
+    transition: all 0.6s linear;
     height: 35px;
     font-family: "EncodeSans-Medium";
-    /* background: orange; */
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     border-radius: 8px;
     border: 1px solid var(--color-3);
     color: var(--color-1);
