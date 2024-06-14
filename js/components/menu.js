@@ -6,7 +6,7 @@ export const menuListCategoryIndex = (res)=>{
         <li title ="${value.name}">
         <a href="?id=${value.id}">
             <img src="storage/img/category.svg" >
-            <span>${value.name}</span>
+            <span title="${value.name}">${value.name}</span>
             
         </a>
     </li>  

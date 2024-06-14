@@ -5,21 +5,21 @@ export const galleryindex =(res, category)=>{
     products.forEach((value,index) => {
         plantilla += /*html*/`
         <section>
-            <div class="section__front_page">
-                    <img src="${value.product_photo} ">
-                    <img src="storage/img/coraxon.svg">
-             </div>
-                    <h5>${value.product__title}/h5>
-                    <small>${category}</small>
-            <div class="section__price">
-                    <span>${value.product_price} </span>
-                <div  class="price__score">
+        <section>
+        <div class="section__front_page">
+            <img src${value.product_photo}>
+            <img src="storage/img/coraxon.svg">
+        </div>
+        <h5>${value.product_title}</h5>
+        <small>${category}</small>
+        <div class="section__price">
+            <span>${value.product_price}</span>
+            <div  class="price__score">
+                <img src="storage/img/star.svg">
                 <p>${(value.product_star_rating!=null) ? value.product_star_rating : 0}</p>
-
-                   
             </div>
-            </div>
-        </section>
+        </div>
+    </section>
         `;
         return plantilla; 
     })
