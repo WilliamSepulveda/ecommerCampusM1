@@ -5,7 +5,6 @@ export const galleryindex =(res, category)=>{
     products.forEach((value,index) => {
         plantilla += /*html*/`
         <section>
-        <section>
         <div class="section__front_page">
             <img src${value.product_photo}>
             <img src="storage/img/coraxon.svg">
@@ -23,4 +22,19 @@ export const galleryindex =(res, category)=>{
         `;
         return plantilla; 
     })
+};
+
+export const galleryCategory = ({data: {product_photos}} = res)=>{
+    return /*html*/`
+        <article class="article__product">
+            <div class="product__image">
+                ${product_photos.map(value => `<div class="product__image__item"><img src="${value}"></div>`).join('')}
+            </div>
+            <div class="product__menu">
+                <a href="../">
+                    <img src="../storage/img/back.svg">
+                </a>
+                <img src="../storage/img/camisa-jordan.png">
+            </div>
+        </article>`;
 };
