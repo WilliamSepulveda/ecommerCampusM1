@@ -15,9 +15,12 @@ input__search.addEventListener("change",async e =>{
     let params = new URLSearchParams(location.search);
     let data = { search : e.target.value}
     input__search.value = null;
-    
     let res = await getAllProductName(data);
-    console.log(res);
+    console.log("Response from getAllProductName:", res.data.products)
+
     main__article.innerHTML = galleryindex(res, params.get ('id'));
+    console.log(main__article)
     
 });
+
+

@@ -16,25 +16,3 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
             </div>
         </article>`;
 }
-
-
-{/* <section  id="main__section__title" class="main__section">
-                <article class="article__detail"></article>
-                <div class="detail__head">
-                    <h1>Camiseta jordan black</h1>
-                    <div class="product__select">
-                        <img src="../storage/img/-.svg" id="img" >
-                        <span>1</span>
-                        <img src="../storage/img/+.svg" id="img">
-                    </div>
-                </div>
-                <div  class="detail__score">
-                    <img src="../storage/img/star.svg" >
-                    <img src="../storage/img/star.svg" >
-                    <img src="../storage/img/star.svg" >
-                    <img src="../storage/img/star.svg" >
-                    <img src="../storage/img/star.svg" >
-                    <span>5.0</span>
-                    <a href="#">(7932 reviews)</a>
-                </div>
-            </article> */}
