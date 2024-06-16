@@ -10,6 +10,7 @@ export const getAllProductName = async({search:text, id:idCategory})=>{
     };
     let res = await fetch(url, options);
     let data = res.json();
+    console.log(res)
     return data;
 }
 
