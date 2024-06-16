@@ -2,7 +2,7 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
     return /*html*/`
         <article class="article__detail">
             <div class="detail__head">
-            <h1>Camiseta jordan </h1>
+            <h1>${dataUpdate.product_title} </h1>
             <div class="product__select">
                 <img src="../storage/img/-.svg" id="img" >
                 <span>1</span>
@@ -16,3 +16,15 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
             </div>
         </article>`;
 }
+
+export const textoProductDetail = async (res) => {
+    if (!res || !res.data) {
+        console.error("Datos del producto inválidos.");
+        return '';
+    }
+    const { data: dataUpdate } = res;
+    return /*html*/`
+    <article class="dfgdf">
+        <p>${dataUpdate.product_description}</p>
+    </article>`;
+};
