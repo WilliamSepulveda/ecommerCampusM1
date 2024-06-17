@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="../css/checkout.css">
+    <script type="module" src="../js/module/checkout.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -21,8 +22,8 @@
         </nav>
     </header>
     <main class="main">
-        <section class="checkout__details">
-            <article class="details__product">
+        <section id="section__checkout" class="checkout__details">
+            <!-- <article class="details__product">
                 <div class="product__imagen">
                     <img src="../storage/img/white-air-jordan-1s.jpg" >
                 </div>
@@ -39,7 +40,66 @@
                         <img src="../storage/img/plus.svg">
                     </div>
                 </div>
+            </article> -->
+        </section>
+        <section class="section__Shopping">
+            <article class="Shopping__title">
+                <h3>Shopping Information</h3>
             </article>
+            <article class="section__card">
+                <div class="dropdown">
+                    <div class="dropdown__button">
+                        <div class="shopping__card">
+                            <img src="../storage/img/visa.svg">
+                            <label>**** **** **** 2143</label>
+                        </div>
+                        <div class="shopping__option">
+                            <img src="../storage/img/arrow-down.svg">
+                        </div>
+                    </div>
+                    <div class="dropdown__content">
+                        <div class="shopping__card">
+                            <img id="shopping__car" onclick="window.location.href ='../views/checkout.html'"src="../storage/img/amex-american-express-logo.png">
+                            <label>**** **** **** 0002</label>
+                        </div>
+                        <div class="shopping__card">
+                            <img id="shopping__car" onclick="window.location.href ='../views/checkout.html'"src="../storage/img//Mastercard-Logo.png" id="mastercard">
+                            <label>**** **** **** 0554</label>
+                        </div>
+                       
+                    </div>
+                  </div>
+            </article>
+            <article class="section__bill">
+                <div class="bill__total">
+                    <label>Total (9 items)</label>
+                    <span>$131.97</span>
+                </div>
+                <div class="bill__fee">
+                    <label>Shipping Fee</label>
+                    <span>$.0.00</span>
+                </div>
+                <div class="bill__subtotal">
+                    <label>Sub Total</label>
+                    <span>$131.97</span>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <ul class="footer__ul">
+            <li>
+                <a href="checkout.html">
+                    <span>Pay</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
+
+
+            <!-- </article>
             <article class="details__product">
                 <div class="product__imagen">
                     <img src="../storage/img/AIR-JORDAN-BLOCK-FLEECE-CREW-658311_010_A.jpg" >
@@ -130,60 +190,4 @@
                         <img src="../storage/img/plus.svg">
                     </div>
                 </div>
-            </article>
-        </section>
-        <section class="section__Shopping">
-            <article class="Shopping__title">
-                <h3>Shopping Information</h3>
-            </article>
-            <article class="section__card">
-                <div class="dropdown">
-                    <div class="dropdown__button">
-                        <div class="shopping__card">
-                            <img src="../storage/img/visa.svg">
-                            <label>**** **** **** 2143</label>
-                        </div>
-                        <div class="shopping__option">
-                            <img src="../storage/img/arrow-down.svg">
-                        </div>
-                    </div>
-                    <div class="dropdown__content">
-                        <div class="shopping__card">
-                            <img id="shopping__car" onclick="window.location.href ='../views/checkout.html'"src="../storage/img/amex-american-express-logo.png">
-                            <label>**** **** **** 0002</label>
-                        </div>
-                        <div class="shopping__card">
-                            <img id="shopping__car" onclick="window.location.href ='../views/checkout.html'"src="../storage/img//Mastercard-Logo.png" id="mastercard">
-                            <label>**** **** **** 0554</label>
-                        </div>
-                       
-                    </div>
-                  </div>
-            </article>
-            <article class="section__bill">
-                <div class="bill__total">
-                    <label>Total (9 items)</label>
-                    <span>$131.97</span>
-                </div>
-                <div class="bill__fee">
-                    <label>Shipping Fee</label>
-                    <span>$.0.00</span>
-                </div>
-                <div class="bill__subtotal">
-                    <label>Sub Total</label>
-                    <span>$131.97</span>
-                </div>
-            </article>
-        </section>
-    </main>
-    <footer class="footer">
-        <ul class="footer__ul">
-            <li>
-                <a href="checkout.html">
-                    <span>Pay</span>
-                </a>
-            </li>
-        </ul>
-    </footer>
-</body>
-</html>
+            </article> -->

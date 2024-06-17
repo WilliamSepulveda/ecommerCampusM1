@@ -1,11 +1,13 @@
 import { galleryCategory } from "../js/components/gallery.js";
 import { colorProductDetail, textoProductDetail, titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
+import {gallerycheckout} from "../js/module/checkout.js"
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let main__section__description = document.querySelector("#main__section__description");
 let main__section__color = document.querySelector("#main__section__color")
+let section__checkout = document.querySelector("#section__checkout")
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -17,6 +19,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
     main__section__title.innerHTML = await titleProductDetail(info);
     main__section__description.innerHTML = await textoProductDetail(info);
     main__section__color.innerHTML = await colorProductDetail(info);
+    section__checkout.innerHTML = await gallerycheckout(info);
     
     // let {data} = res;
     // let {
