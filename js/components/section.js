@@ -4,7 +4,7 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
             <div class="detail__head">
             <h1>${dataUpdate.product_title} </h1>
             <div class="product__select">
-                <img src="../storage/img/-.svg" id="img" >
+                <img src="../storage/img/-.svg" id="img">
                 <span>1</span>
                 <img src="../storage/img/+.svg" id="img">
             </div>
@@ -35,10 +35,10 @@ export const colorProductDetail = async({ data:dataUpdate } = res)=>{
     <div class="product__size">
         <h5>Choose Size</h5>
         <div>
-            <img src="../storage/img/s.svg" id="imagen">
-            <img src="../storage/img/m.svg" id="imagen">
-            <img src="../storage/img/l.svg" id="imagen">
-            <img src="../storage/img/xl.svg" id="imagen">
+            <img src="../storage/img/s.svg" id="imagen" tabindex="0">
+            <img src="../storage/img/m.svg" id="imagen" tabindex="0">
+            <img src="../storage/img/l.svg" id="imagen" tabindex="0">
+            <img src="../storage/img/xl.svg" id="imagen" tabindex="0">
         </div>
     </div>
     <div  class="product__color">
@@ -48,4 +48,19 @@ export const colorProductDetail = async({ data:dataUpdate } = res)=>{
         </div>
     </div>
 </article>`;
+}
+
+
+
+
+export const footerDetail = async({data: dataUpdate})=>{
+    return /*html*/`
+        <li>
+        <a href="../views/checkout.html">
+            <img src="../storage/img/shopping-cart.svg">
+            <span>Add to Cart | $100.99 <del><sub>$190.99</sub></del> </span>
+        </a>
+    </li>
+    
+    `;
 }

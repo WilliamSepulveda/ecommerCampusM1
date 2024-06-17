@@ -122,7 +122,6 @@
 .product__custom{
     margin-top: 25px;
     display: flex;
-    /* background: rgb(0, 128, 11); */
     justify-content: space-between;
 }.product__size,
 .product__color{
@@ -136,10 +135,10 @@
     width: 30px;
     border-radius: 100%;
 }
-#imagen:hover{
-    background-color: rgb(0, 0, 0);
+#imagen:hover, #imagen:focus {
     filter: invert(100%);
     border-radius: 2vw;
+    
 }
 
 
@@ -194,4 +193,5 @@
 }
 #shopping{
     margin-top: 7vw;
+    width: 100%;
 }
