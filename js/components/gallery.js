@@ -39,3 +39,7 @@ export const galleryCategory = ({data: {product_photos}} = res)=>{
             </div>
         </article>`;
 }
+
+
+
+

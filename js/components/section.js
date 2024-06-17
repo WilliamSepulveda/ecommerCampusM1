@@ -28,3 +28,24 @@ export const textoProductDetail = async (res) => {
         <p>${dataUpdate.product_description}</p>
     </article>`;
 };
+
+export const colorProductDetail = async({ data:dataUpdate } = res)=>{
+    return /*html*/`
+    <article class="product__custom">
+    <div class="product__size">
+        <h5>Choose Size</h5>
+        <div>
+            <img src="../storage/img/s.svg" id="imagen">
+            <img src="../storage/img/m.svg" id="imagen">
+            <img src="../storage/img/l.svg" id="imagen">
+            <img src="../storage/img/xl.svg" id="imagen">
+        </div>
+    </div>
+    <div  class="product__color">
+        <h5>${dataUpdate.ships_from}</h5>
+        <div>
+            <p> ${dataUpdate.Comfort}</p>
+        </div>
+    </div>
+</article>`;
+}
