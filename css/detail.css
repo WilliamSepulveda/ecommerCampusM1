@@ -123,6 +123,28 @@
     height: 1px;
     border-style: none;
 }
+summary  {
+    list-style: none;
+}
+/* sigh, Safari again */
+    summary::-webkit-details-marker {
+    display: none;
+}
+summary {
+    border-radius: 5px;
+    /* background: red; */
+    width: 10vw;
+    cursor: pointer;
+}
+
+details[open] summary {
+    border-radius: 5px 5px 0 0;
+    /* padding: 0 10px 0 10px; */
+}
+
+details {
+    border-radius: 5px;
+}
 .product__custom{
     margin-top: 25px;
     display: flex;

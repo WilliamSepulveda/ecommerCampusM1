@@ -1,11 +1,16 @@
 import { galleryCategory } from "../js/components/gallery.js";
-import { FooterDetail, colorProductDetail, textoProductDetail, titleProductDetail } from "../js/components/section.js";
+import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
-import {gallerycheckout} from "../js/module/checkout.js"
+import {gallerycheckout} from "../js/module/checkout.js";
+import {FooterDetail} from "../js/components/footer.js"
+
+
+
+
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
-let main__section__description = document.querySelector("#main__section__description");
+let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
 // let section__checkout = document.querySelector("#section__checkout");
@@ -15,13 +20,13 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
     let id = params.get('id');
     if(!localStorage.getItem(id)) localStorage.setItem(id, JSON.stringify(await getProductId({id})));
-    
+   
     
     
     let info = JSON.parse(localStorage.getItem(id));
     main__section_gallery.innerHTML = await galleryCategory(info);
     main__section__title.innerHTML = await titleProductDetail(info);
-    main__section__description.innerHTML = await textoProductDetail(info);
+    product__information.innerHTML = await productDetail(info);
     main__section__color.innerHTML = await colorProductDetail(info);
     section__footer__price.innerHTML = await FooterDetail(info);
     // section__checkout.innerHTML = await gallerycheckout(info);

@@ -64,69 +64,57 @@ export const colorProductDetail = async ({ data: dataUpdate } = res) => {
         </article>`;
 }
 
+export const productDetail = async(res)=>{
+    let {data} = res;
+    let {
+        category_path,
+        about_product,
+        product_details,
+        product_information,
+        product_photos,
+        product_variations,
+        rating_distribution,
+        review_aspects,
+        ...dataUpdate
+    } = data;
+    // console.log(dataUpdate);
+    let string1 = dataUpdate.product_description.slice(0, 165);
+    let string2 = dataUpdate.product_description.slice(166);
 
-// Definir la función expandirTexto globalmente
-const expandirTexto = (descripcionCompletaId, leerMasOptionId) => {
-    const descripcionCompleta = document.getElementById(descripcionCompletaId).dataset.fulltext;
-    document.getElementById(descripcionCompletaId).innerHTML = descripcionCompleta;
-    document.getElementById(leerMasOptionId).style.display = 'none';
-    
-};
-
-
-// Definir la función textoProductDetail
-export const textoProductDetail = async (res) => {
-    if (!res || !res.data) {
-        console.error("Datos del producto inválidos.");
-        return '';
-    }
-    const { data: dataUpdate } = res;
-    const shortDescription = dataUpdate.product_description.substring(0, 100);
-    const fullDescription = dataUpdate.product_description;
 
     return /*html*/`
-        <article class="dfgdf">
-            <p id="descripcionProducto" data-fulltext="${fullDescription}">${shortDescription}... 
-                <strong id="leerMasOption" style="cursor: pointer; color: blue;">Leer más.</strong>
-            </p>
-        </article>
-        <script>
-            // Asegurarse de que el script se ejecute cuando el DOM esté completamente cargado
-            window.onload = () => {
-                document.getElementById('leerMasOption').onclick = function() {
-                    expandirTexto('descripcionProducto', 'leerMasOption');
-                    
-                };
-            };
-        </script>
-`;
+    <details>
+        <summary>${(dataUpdate.product_description.length >= 165) ? string1+"..." : string1}</summary>
+        <p>${string2}</p>
+    </details>`;
+}
+
+
+
+
+
+
+const renderProductDetail = async ({data:dataUpdate}) => {
+    // Función callback para actualizar el precio en el footer
+    const actualizarPrecioFooter = (numeroSeleccionado) => {
+        const footerElement = document.getElementById('footerDetail');
+        footerElement.innerHTML = FooterDetail({ data: dataUpdate, numeroSeleccionado });
+    };
+
+    const titleHtml = await titleProductDetail({ data: dataUpdate, onNumeroCambiado: actualizarPrecioFooter });
+    const footerHtml = FooterDetail({ data: dataUpdate });
+
+    // Renderizar HTML en el DOM
+    const titleContainer = document.getElementById('titleProductDetail');
+    const FooterDetail = document.getElementById('FooterDetail');
+
+    titleContainer.innerHTML = titleHtml;
+    footerContainer.innerHTML = footerHtml;
 };
 
+// Llamar a la función para renderizar el detalle del producto
+renderProductDetail();
 
 
 
 
-
-
-
-export const FooterDetail = async({data: dataUpdate} = res) => {
-    if (dataUpdate.product_original_price == null){
-        return /*html*/`
-        
-        <li>
-        <a href="checkout.html">
-            <img src="../storage/img/shopping-cart.svg">
-            <span>Add to card ${dataUpdate.product_price}</span>
-        </a>
-    </li>
-    `}
-
-    return /*html*/ `
-    <li>
-        <a href="checkout.html">
-            <img src="../storage/img/shopping-cart.svg">
-            <span id ="precioTotal">Add to card ${dataUpdate.product_price}<sub>${dataUpdate.product_original_price}</sub></del></span>
-        </a>
-    </li>
-    `
-};
