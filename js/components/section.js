@@ -30,7 +30,7 @@ export const textoProductDetail = async (res) => {
 };
 
 export const colorProductDetail = async({ data:dataUpdate } = res)=>{
-    return /*html*/`
+    return /*html*/`    
     <article class="product__custom">
     <div class="product__size">
         <h5>Choose Size</h5>
@@ -53,14 +53,24 @@ export const colorProductDetail = async({ data:dataUpdate } = res)=>{
 
 
 
-export const footerDetail = async({data: dataUpdate})=>{
-    return /*html*/`
+export const FooterDetail = async({data: dataUpdate} = res) => {
+    if (dataUpdate.product_original_price == null){
+        return /*html*/`
+        
         <li>
-        <a href="../views/checkout.html">
+        <a href="checkout.html">
             <img src="../storage/img/shopping-cart.svg">
-            <span>Add to Cart | $100.99 <del><sub>$190.99</sub></del> </span>
+            <span>Add to card ${dataUpdate.product_price}</span>
         </a>
     </li>
-    
-    `;
-}
+    `}
+
+    return /*html*/ `
+    <li>
+        <a href="checkout.html">
+            <img src="../storage/img/shopping-cart.svg">
+            <span id ="precioTotal">Add to card ${dataUpdate.product_price}<sub>${dataUpdate.product_original_price}</sub></del></span>
+        </a>
+    </li>
+    `
+};

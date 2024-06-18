@@ -8,7 +8,7 @@ export const gallerycheckout = ({data:dataUpdate}) => {
                 </div>
                 <div class="product__description">
                     <h3>${dataUpdate.product_title}</h3>
-                    <small>${category}</small>
+                    <small>${dataUpdate.product_title}</small>
                     <span>${dataUpdate.product_price}</span>
                 </div>
                 <div class="product__custom">
