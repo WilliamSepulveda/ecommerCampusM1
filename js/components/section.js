@@ -17,38 +17,89 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
         </article>`;
 }
 
+
+
+export const colorProductDetail = async ({ data: dataUpdate } = res) => {
+    if (dataUpdate === undefined) {
+        return /*html*/`
+            <article class="product__custom">
+                <div class="product__size">
+                    <h5>Choose Size</h5>
+                    <div>
+                        <img src="../storage/img/s.svg" id="imagen" tabindex="0">
+                        <img src="../storage/img/m.svg" id="imagen" tabindex="0">
+                        <img src="../storage/img/l.svg" id="imagen" tabindex="0">
+                        <img src="../storage/img/xl.svg" id="imagen" tabindex="0">
+                    </div>
+                </div>
+                <div  class="product__color">
+                    <h5>Ships From Default Value</h5>
+                    <div>
+                        <p>Comfort Default Value</p>
+                        <img src="../storage/img/Choose Color.svg">
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../views/checkout.html">
+                            <img src="../storage/img/shopping-cart.svg">
+                            <span>Add to Cart | $100.99 <del><sub>$190.99</sub></del> </span>
+                        </a>
+                    </li>
+                </ul>
+            </article>`;
+    }
+
+
+    return /*html*/`
+        <article class="product__custom">
+            <div class="product__size">
+                <h5>Choose Size</h5>
+                <div>
+                    <img src="../storage/img/s.svg" id="imagen" tabindex="0">
+                    <img src="../storage/img/m.svg" id="imagen" tabindex="0">
+                    <img src="../storage/img/l.svg" id="imagen" tabindex="0">
+                    <img src="../storage/img/xl.svg" id="imagen" tabindex="0">
+                </div>
+            </div>
+            <div  class="product__color">
+                <h5>${dataUpdate.ships_from}</h5>
+                <div>
+                    <p>${dataUpdate.Comfort}</p>
+                    <img src="../storage/img/Choose Color.svg">
+                </div>
+            </div>
+        </article>`;
+}
+
+
+const expandirTexto = (descripcionCompletaId, leerMasOptionId) => {
+    const descripcionCompleta = document.getElementById(descripcionCompletaId).textContent;
+    document.getElementById(descripcionCompletaId).innerHTML = descripcionCompleta;
+    document.getElementById(leerMasOptionId).style.display = 'none'; 
+};
+
 export const textoProductDetail = async (res) => {
     if (!res || !res.data) {
         console.error("Datos del producto inválidos.");
         return '';
     }
     const { data: dataUpdate } = res;
-    return /*html*/`
-    <article class="dfgdf">
-        <p>${dataUpdate.product_description}</p>
-    </article>`;
-};
 
-export const colorProductDetail = async({ data:dataUpdate } = res)=>{
-    return /*html*/`    
-    <article class="product__custom">
-    <div class="product__size">
-        <h5>Choose Size</h5>
-        <div>
-            <img src="../storage/img/s.svg" id="imagen" tabindex="0">
-            <img src="../storage/img/m.svg" id="imagen" tabindex="0">
-            <img src="../storage/img/l.svg" id="imagen" tabindex="0">
-            <img src="../storage/img/xl.svg" id="imagen" tabindex="0">
-        </div>
-    </div>
-    <div  class="product__color">
-        <h5>${dataUpdate.ships_from}</h5>
-        <div>
-            <p> ${dataUpdate.Comfort}</p>
-        </div>
-    </div>
-</article>`;
-}
+    return /*html*/`
+        <article class="dfgdf">
+            <p id="descripcionProducto">${dataUpdate.product_description.substring(0, 100)}... 
+                <strong id="leerMasOption" style="cursor: pointer; color: blue;">Leer más.</strong>
+            </p>
+        </article>
+        <script>
+            // Manejar el clic en "Leer más" utilizando la función expandirTexto
+            document.getElementById('leerMasOption').onclick = function() {
+                expandirTexto('descripcionProducto', 'leerMasOption');
+            };
+        </script>
+    `;
+};
 
 
 
