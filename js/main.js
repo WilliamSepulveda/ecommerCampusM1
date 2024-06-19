@@ -21,6 +21,8 @@ input__search.addEventListener("change", async e => {
     main__article.innerHTML = galleryindex(res, params.get('id'));
 });
 
+
+
 let searchProducts = async e => {
 
     let params = new URLSearchParams(location.search);
@@ -54,8 +56,6 @@ let searchProducts = async e => {
     Promise.all([proceso]).then(res => {console.log(res);})
 
 }
-
-
 addEventListener("DOMContentLoaded", async e=>{
     if(!localStorage.getItem("getAllCategory")) localStorage.setItem("getAllCategory", JSON.stringify(await getAllCategory()));
     nav__ul.innerHTML = await menuListCategoryIndex(JSON.parse(localStorage.getItem("getAllCategory")));  
@@ -67,9 +67,5 @@ addEventListener("DOMContentLoaded", async e=>{
     
    
 })
-
 input__search.addEventListener("change", searchProducts);
-
-
-
 

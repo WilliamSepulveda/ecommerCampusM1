@@ -1,5 +1,6 @@
 export const galleryindex =(res, category)=>{
     let {products} = res.data
+    console.log(products);
     let plantilla = "";
     products.forEach((value,index) => {
         plantilla += /*html*/`

@@ -2,18 +2,14 @@ import { galleryCategory } from "../js/components/gallery.js";
 import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
 import {buttonCartDetails} from "../js/components/footer.js"
-
-
-
-
+import { gallerycheckout } from "./components/checkout.js";
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
-// let section__checkout = document.querySelector("#section__checkout");
-
+let section__checkout = document.querySelector("#galleryCategory" )
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -31,11 +27,10 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let btn_minus = document.querySelector("#btn_minus");
     let btn_plus = document.querySelector("#btn_plus");
     
-
-
+    
     btn_minus.addEventListener("click",quantity)
     btn_plus.addEventListener("click",quantity)
-
+    section__checkout.innerHTML = await gallerycheckout(info);
 })
 const quantity = async (e)=>{
     let span_quantity = document.querySelector("#span_quantity");
