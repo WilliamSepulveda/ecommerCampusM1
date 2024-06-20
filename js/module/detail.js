@@ -1,5 +1,5 @@
 import { headers } from "../components/env.js";
-import { galleryCategory } from "../components/gallery.js";
+
 
 export const getProductId = async({id:idCategory})=>{
     console.log("Esperando .......");

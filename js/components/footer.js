@@ -1,5 +1,8 @@
 export const buttonCartDetails = async(res)=>{
     let {data} = res;
+    // console.log(res.data.asin);
+    let id = res.data.asin; 
+    let enlace = `checkout.html?id=${id}`; 
     let {
         category_path,
         about_product,
@@ -19,7 +22,7 @@ export const buttonCartDetails = async(res)=>{
     
     return /*html*/`
     <li>
-        <a href="checkout.html">
+        <a href="${enlace}">
             <img src="../storage/img/shopping-cart.svg">
             <span>Add to Cart | ${(product_original_price) ? "<span id='price_discount'>"+product_price+"</span><del><sub id='price_original'>"+product_original_price+"</sub></del>" : "<span id='price_discount'>"+product_price+"</span> <del><sub id='price_original'></sub></del>"} </span>
         </a>

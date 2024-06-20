@@ -39,4 +39,56 @@ export const galleryCategory = ({data: {product_photos}} = res)=>{
                     <img src="../storage/img/Like icon.svg" >
                 </div>
             </article>`;
-}
+};
+
+
+export const galleryCheckout = async()=>{
+    let keys = Object.keys(sessionStorage)
+    let plantilla = "";
+    keys.forEach(key=>{
+        let diccionarios = JSON.parse(sessionStorage.getItem(key));
+        if(diccionarios.data){
+            let value = diccionarios.data;
+            console.log(value);
+            plantilla += /*html*/`
+            <article class="details__product">
+                <div class="product__imagen">
+                    <img src="${value.product_photo}">
+                </div>
+                <div class="product__description">
+                    <h3>${(value.product_title).substring(0,10)}...</h3>
+                    <small>${value.product_star_rating ? value.product_star_rating : "*No Ratings*"}</small>
+                    <span>${value.product_price}</span>
+                </div>
+                <div class="product__custom">
+                    <img src="../storage/img/3puntos.svg">
+                    <div class="product__select">
+                        <img src="../storage/img/minus.svg" id="decreaseQuantity">
+                        <span id ="quantity">1</span>
+                        <img src="../storage/img/plus.svg" id="increaseQuantity">
+                    </div>
+                </div>
+            </article>
+            `;
+        }
+    });
+    return plantilla;
+};
+
+export const galleryBill = async () => {
+    return /*html*/`
+        <div class="bill__total">
+            <label>Total (9 items)</label>
+            <span>$131.97</span>
+        </div>
+        <div class="bill__fee">
+            <label>Shipping Fee</label>
+            <span>$0.00</span>
+        </div>
+        <div class="bill__subtotal">
+            <label>Sub Total</label>
+            <span>$131.97</span>
+        </div>
+    `;
+};
+

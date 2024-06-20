@@ -2,14 +2,14 @@ import { galleryCategory } from "../js/components/gallery.js";
 import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
 import {buttonCartDetails} from "../js/components/footer.js"
-import { gallerycheckout } from "./components/checkout.js";
+
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
-let section__checkout = document.querySelector("#galleryCategory" )
+
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -24,16 +24,16 @@ addEventListener("DOMContentLoaded", async(e)=>{
     product__information.innerHTML = await productDetail(info);
     main__section__color.innerHTML = await colorProductDetail(info);
     section__footer__price.innerHTML = await buttonCartDetails(info);
-    let btn_minus = document.querySelector("#btn_minus");
-    let btn_plus = document.querySelector("#btn_plus");
+    let btn_minus = document.querySelectorAll("#btn_minus");
+    let btn_plus = document.querySelectorAll("#btn_plus");
     
     
     btn_minus.addEventListener("click",quantity)
     btn_plus.addEventListener("click",quantity)
-    section__checkout.innerHTML = await gallerycheckout(info);
+
 })
 const quantity = async (e)=>{
-    let span_quantity = document.querySelector("#span_quantity");
+    let span_quantity = document.querySelector("#quantity");
     let price_discount = document.querySelector("#price_discount");
     let price_original = document.querySelector("#price_original");
     let params = new URLSearchParams(location.search);
@@ -45,13 +45,12 @@ const quantity = async (e)=>{
     let product_price= Number(res.product_price.replace("$", ""));
 
     
-    if(e.target.id == "btn_plus")span_quantity.innerHTML = Number(span_quantity.innerHTML) + 1
+    if(e.target.id == "btn_plus")span_quantity.innerHTML = Number(span_quantity.innerHTML) + 2
     if(e.target.id == "btn_minus" && span_quantity.innerHTML > "1") span_quantity.innerHTML = Number(span_quantity.innerHTML) - 1;
 
-    price_discount.innerHTML = `$${(product_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
-    if(product_original_price) price_original.innerHTML = `$${(product_original_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
+    price_discount.innerHTML = `${(product_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
+    if(product_original_price) price_original.innerHTML = `${(product_original_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
 }
-
 
 
 
