@@ -1,6 +1,5 @@
 export const menuListCategoryIndex = (res) => {
-    let { data } = res;
-    console.log(data);
+    let {data} = res;
     let plantilla = "";
 
     if (Array.isArray(data)) {
@@ -15,7 +14,7 @@ export const menuListCategoryIndex = (res) => {
             `;
         });
     } else {
-        console.error('Data is not an array:', data);
+        console.error("data is not an array or is undefined");
     }
 
     return plantilla;
