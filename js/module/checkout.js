@@ -46,7 +46,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
         updatePrice(quantity);
     });
 
-    updatePrice(1);  // Inicializa el precio con la cantidad inicial
+    updatePrice(1);
 });
 
 
