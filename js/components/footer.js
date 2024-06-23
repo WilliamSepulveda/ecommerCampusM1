@@ -1,6 +1,6 @@
 export const buttonCartDetails = async(res)=>{
     let {data} = res;
-    // console.log(res.data.asin);
+    console.log(res.data.asin);
     let id = res.data.asin; 
     let enlace = `checkout.html?id=${id}`; 
     let {

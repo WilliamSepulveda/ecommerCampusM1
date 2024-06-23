@@ -6,7 +6,7 @@ export const titleProductDetail = async({ data:dataUpdate } = res)=>{
                 <div class="product__select">
                     <img id="btn_minus" src="../storage/img/-.svg">
                     <span id="span_quantity">1</span>
-                    <img id="btn_plus" src="../storage/img/+.svg" alt="">
+                    <img id="btn_plus" src="../storage/img/+.svg" >
                 </div>
             </div>
             <div class="detail__score">
