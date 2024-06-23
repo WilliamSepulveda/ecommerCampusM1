@@ -75,20 +75,49 @@ export const galleryCheckout = async()=>{
     return plantilla;
 };
 
-export const galleryBill = async () => {
+export const galleryBill = async (info) => {
+    if (!info || !info.data) {
+        return ''; // Salir si no hay información válida
+    }
+
+    let precioEntero = parseFloat(info.data.product_price.replace('$', ''));
+    let total = info.data * precioEntero;
+    console.log(info.data.total)
     return /*html*/`
+        <div id="precioTotal">Agregar al carrito $${total.toFixed(2)}</div>
         <div class="bill__total">
-            <label>Total (9 items)</label>
-            <span>$131.97</span>
+            <label>Total (${info.data.product_quantity} artículo${info.data.product_quantity > 1 ? 's' : ''})</label>
+            <span>$${total.toFixed(2)}</span>
         </div>
         <div class="bill__fee">
-            <label>Shipping Fee</label>
+            <label>Gastos de envío</label>
             <span>$0.00</span>
         </div>
         <div class="bill__subtotal">
-            <label>Sub Total</label>
-            <span>$131.97</span>
+            <label>Subtotal</label>
+            <span>$${total.toFixed(2)}</span>
         </div>
     `;
 };
+
+
+export const updateBillDetails = (quantity, total) => {
+    const billHTML = /*html*/`
+        <div class="bill__total">
+            <label>Total (${quantity} artículos)</label>
+            <span>$${total.toFixed(2)}</span>
+        </div>
+        <div class="bill__fee">
+            <label>Gastos de envío</label>
+            <span>$0.00</span>
+        </div>
+        <div class="bill__subtotal">
+            <label>Subtotal</label>
+            <span>$${total.toFixed(2)}</span>
+        </div>
+    `;
+
+    section_bill.innerHTML = billHTML;
+};
+
 

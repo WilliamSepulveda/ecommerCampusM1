@@ -1,55 +1,76 @@
 import { getProductId } from "../module/detail.js";
-import { galleryCheckout,galleryBill } from "../components/gallery.js";
+import { galleryCheckout, galleryBill,updateBillDetails } from "../components/gallery.js";
 
+document.addEventListener("DOMContentLoaded", async () => {
+    let mainSectionCheckout = document.querySelector("#main__section__checkout");
+    let sectionBill = document.querySelector("#section_bill");
 
-let main__section__checkout = document.querySelector("#main__section__checkout")
-let section_bill = document.querySelector("#section_bill")
-
-addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
     let id = params.get('id');
-    if(!sessionStorage.getItem(id)) sessionStorage.setItem(id, JSON.stringify(await getProductId({id})));
-
+    
+    // Obtener información del producto
     let info = JSON.parse(sessionStorage.getItem(id));
-    main__section__checkout.innerHTML = await galleryCheckout();
-    section_bill.innerHTML = await galleryBill(info);
+    if (!info) {
+        info = await getProductId({ id });
+        sessionStorage.setItem(id, JSON.stringify(info));
+    }
 
+    // Renderizar secciones del checkout y factura
+    mainSectionCheckout.innerHTML = await galleryCheckout();
+    sectionBill.innerHTML = await galleryBill(info);
+
+    // Selección de elementos del DOM
     let decreaseButton = document.querySelector("#decreaseQuantity");
     let increaseButton = document.querySelector("#increaseQuantity");
     let quantitySpan = document.querySelector("#quantity");
+    let precioTotal = document.querySelector("#precioTotal");
 
+    // Función para actualizar el precio y detalles de la factura
     const updatePrice = (quantity) => {
+        if (!info || !info.data) {
+            return; // Salir si no hay información válida
+        }
+
         let precioEntero = parseFloat(info.data.product_price.replace('$', ''));
-        let precioTotalContent = `<span id="precioTotal">Add to Cart $${quantity * precioEntero}`;
+        let precioTotalContent = `Agregar al carrito $${(quantity * precioEntero).toFixed(2)}`;
+
         if (info.data.product_original_price !== null) {
             let precioOriginal = parseFloat(info.data.product_original_price.replace('$', ''));
-            precioTotalContent += `<del><sub>$${quantity * precioOriginal}</sub></del>`;
+            precioTotalContent += `<del><sub>$${(quantity * precioOriginal).toFixed(2)}</sub></del>`;
         }
-        precioTotalContent += `</span>`;
-        precioTotal.innerHTML = precioTotalContent;
+
+        if (precioTotal) {
+            precioTotal.innerHTML = precioTotalContent;
+        }
+
+        // Actualizar los detalles de la factura
+        updateBillDetails(quantity, quantity * precioEntero);
     };
 
-    decreaseButton.addEventListener('click', () => {
-        let quantity = parseInt(quantitySpan.textContent);
-        if (quantity > 1) {
-            quantity -= 1;
+
+
+    if (decreaseButton) {
+        decreaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantitySpan.textContent);
+            if (quantity > 1) {
+                quantity -= 1;
+                quantitySpan.textContent = quantity;
+                updatePrice(quantity);
+            }
+        });
+    }
+
+    if (increaseButton) {
+        increaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantitySpan.textContent);
+            quantity += 1;
             quantitySpan.textContent = quantity;
             updatePrice(quantity);
-        }
-        
-    });
+        });
+    }
 
-    increaseButton.addEventListener('click', () => {
-        let quantity = parseInt(quantitySpan.textContent);
-        quantity += 1;
-        quantitySpan.textContent = quantity;
-        updatePrice(quantity);
-    });
-
-    updatePrice(1);
+    // Inicializar precio y detalles de la factura al cargar la página
+    updatePrice(parseInt(quantitySpan.textContent));
 });
-
-
-    
 
 
