@@ -236,6 +236,11 @@
     bottom: 10px;
     width: 100%;
     padding: var(--space-layout-padding-lr);
+    transition: 0.5s;
+}
+.footer :hover{
+    transition: 0.5s;
+    box-shadow: 0px 0px 90px rgb(156, 4, 244);
 }
 .footer__ul{
     background: var(--color-4);
@@ -246,6 +251,8 @@
     align-items: center;
     border-radius: 40px;
 }
+
+
 .footer__ul li{
     list-style: none;
     display: flex;
