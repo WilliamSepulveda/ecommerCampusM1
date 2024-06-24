@@ -28,3 +28,33 @@ export const buttonCartDetails = async(res)=>{
         </a>
     </li>`;
 }
+
+
+export const botonbuyindex = async (res) => {
+    let { data } = res;
+    let id = res.data.asin;
+    let enlace = `index.html?id=${id}`;
+    let {
+        category_path,
+        about_product,
+        product_details,
+        product_information,
+        product_photos,
+        product_variations,
+        rating_distribution,
+        review_aspects,
+        ...dataUpdate
+    } = data;
+    console.log(dataUpdate);
+
+    // Obtener el número de productos en el carrito
+    let itemCount = Object.keys(sessionStorage).length;
+
+    return /*html*/`
+    <a href="views/detail.html">
+
+    <img id="shopping" src="storage/img/shopping-cart.svg">
+</a>
+    `;
+}
+

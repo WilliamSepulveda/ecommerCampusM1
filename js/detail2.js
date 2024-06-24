@@ -1,7 +1,7 @@
 import { galleryCategory } from "../js/components/gallery.js";
 import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
-import {buttonCartDetails} from "../js/components/footer.js"
+import {botonbuyindex, buttonCartDetails} from "../js/components/footer.js"
 
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
@@ -9,6 +9,7 @@ let main__section__title = document.querySelector("#main__section__title");
 let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
+let sectionFooterPrice = document.querySelector(".footer__ul");
 
 
 addEventListener("DOMContentLoaded", async(e)=>{
@@ -24,25 +25,13 @@ addEventListener("DOMContentLoaded", async(e)=>{
     main__section__title.innerHTML = await titleProductDetail(info);
     let btn_minus = document.querySelectorAll("#btn_minus");
     let btn_plus = document.querySelectorAll("#btn_plus");
+   
 
 
     product__information.innerHTML = await productDetail(info);
     main__section__color.innerHTML = await colorProductDetail(info);
     section__footer__price.innerHTML = await buttonCartDetails(info);
-    
-    // let {data} = res;
-    // let {
-    //     category_path,
-    //     about_product,
-    //     product_details,
-    //     product_information,
-    //     product_photos,
-    //     product_variations,
-    //     rating_distribution,
-    //     review_aspects,
-    //     ...dataUpdate
-    // } = data;
-    // console.log(dataUpdate);
+    sectionFooterPrice.innerHTML = await botonbuyindex(info);
     
     btn_minus.forEach(button => {
         button.addEventListener("click", quantity);
