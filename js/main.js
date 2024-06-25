@@ -19,16 +19,16 @@ input__search.addEventListener("change", async e => {
     input__search.value = null;
     let res = await getAllProductName(data)
     main__article.innerHTML = galleryindex(res, params.get('id'));
+    console.log(res);
 });
 
 
 
 let searchProducts = async e => {
-
     let params = new URLSearchParams(location.search);
     let dataSearch = { search : e.target.value, id: params.get('id')}
     input__search.value = null;
-    let res = ""
+    let res = "";
     if(input__search.dataset.opc == "random"){
         res = await getAllProductRandom({})
         delete input__search.dataset.opc
@@ -43,6 +43,7 @@ let searchProducts = async e => {
     main__article.innerHTML = galleryindex(res, params.get('id'));
     
     let {data: {products}} = res;
+    console.log(data)
     let asin = products.map(value => {return {id: value.asin}});
 
     let proceso = new Promise(async(resolve, reject)=>{
@@ -56,6 +57,9 @@ let searchProducts = async e => {
     Promise.all([proceso]).then(res => {console.log(res);})
 
 }
+
+
+
 addEventListener("DOMContentLoaded", async e=>{
     if(!localStorage.getItem("getAllCategory")) localStorage.setItem("getAllCategory", JSON.stringify(await getAllCategory()));
     nav__ul.innerHTML = await menuListCategoryIndex(JSON.parse(localStorage.getItem("getAllCategory")));  

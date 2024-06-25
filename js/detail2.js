@@ -1,7 +1,7 @@
 import { galleryCategory } from "../js/components/gallery.js";
 import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
-import {botonbuyindex, buttonCartDetails} from "../js/components/footer.js"
+import { botonCompras, buttonCartDetails } from "./components/footer.js";
 
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
@@ -10,7 +10,6 @@ let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
 let sectionFooterPrice = document.querySelector(".footer__ul");
-
 
 addEventListener("DOMContentLoaded", async(e)=>{
     
@@ -23,6 +22,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let info = JSON.parse(localStorage.getItem(id));
     main__section_gallery.innerHTML = await galleryCategory(info);
     main__section__title.innerHTML = await titleProductDetail(info);
+
     let btn_minus = document.querySelectorAll("#btn_minus");
     let btn_plus = document.querySelectorAll("#btn_plus");
    
@@ -32,6 +32,8 @@ addEventListener("DOMContentLoaded", async(e)=>{
     main__section__color.innerHTML = await colorProductDetail(info);
     section__footer__price.innerHTML = await buttonCartDetails(info);
     sectionFooterPrice.innerHTML = await botonbuyindex(info);
+   
+    
     
     btn_minus.forEach(button => {
         button.addEventListener("click", quantity);
@@ -61,3 +63,22 @@ const quantity = async (e) => {
     price_discount.innerHTML = `$${(product_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
     if (product_original_price) price_original.innerHTML = `$${(product_original_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
 };
+
+const mostrarBotonCompras = async () => {
+try {
+    const compraHTML = await botonCompras(); 
+
+    const compraContainer = document.getElementById('#compra'); 
+    if (compraContainer) {
+        compraContainer.innerHTML = compraHTML;
+    } else {
+        console.error('Container not found');
+    }
+} catch (error) {
+    console.error('Error al mostrar el botón de compras:', error);
+    // Manejar el error, como mostrar un mensaje de error al usuario o realizar otra acción adecuada
+}
+};
+
+// Llamar a la función para mostrar el botón de compras en la aplicación
+mostrarBotonCompras();
