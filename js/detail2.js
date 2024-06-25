@@ -1,7 +1,7 @@
 import { galleryCategory } from "../js/components/gallery.js";
 import {  colorProductDetail, productDetail,  titleProductDetail } from "../js/components/section.js";
 import { getProductId } from "../js/module/detail.js";
-import { botonCompras, buttonCartDetails } from "./components/footer.js";
+import { buttonCartDetails } from "./components/footer.js";
 
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
@@ -9,7 +9,6 @@ let main__section__title = document.querySelector("#main__section__title");
 let product__information = document.querySelector(".product__information");
 let main__section__color = document.querySelector("#main__section__color");
 let section__footer__price = document.querySelector(".footer__ul");
-let sectionFooterPrice = document.querySelector(".footer__ul");
 
 addEventListener("DOMContentLoaded", async(e)=>{
     
@@ -31,7 +30,6 @@ addEventListener("DOMContentLoaded", async(e)=>{
     product__information.innerHTML = await productDetail(info);
     main__section__color.innerHTML = await colorProductDetail(info);
     section__footer__price.innerHTML = await buttonCartDetails(info);
-    sectionFooterPrice.innerHTML = await botonbuyindex(info);
    
     
     
@@ -63,22 +61,3 @@ const quantity = async (e) => {
     price_discount.innerHTML = `$${(product_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
     if (product_original_price) price_original.innerHTML = `$${(product_original_price * Number(span_quantity.innerHTML)).toFixed(2)}`;
 };
-
-const mostrarBotonCompras = async () => {
-try {
-    const compraHTML = await botonCompras(); 
-
-    const compraContainer = document.getElementById('#compra'); 
-    if (compraContainer) {
-        compraContainer.innerHTML = compraHTML;
-    } else {
-        console.error('Container not found');
-    }
-} catch (error) {
-    console.error('Error al mostrar el botón de compras:', error);
-    // Manejar el error, como mostrar un mensaje de error al usuario o realizar otra acción adecuada
-}
-};
-
-// Llamar a la función para mostrar el botón de compras en la aplicación
-mostrarBotonCompras();

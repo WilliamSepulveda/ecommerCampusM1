@@ -29,18 +29,3 @@ export const buttonCartDetails = async(res)=>{
     </li>`;
 }
 
-export const botonCompras = async () => {
-    try {
-        let compraTemplate = /*html*/`
-            <li id="compra">
-                <a href="views/detail.html">
-                    <img id="shopping" src="storage/img/shopping-cart.svg">
-                </a>
-            </li>
-        `;
-        return compraTemplate;
-    } catch (error) {
-        console.error('Error en la función botonCompras:', error);
-        return '';
-    }
-};
